@@ -82,7 +82,8 @@ void Dynamics::stepOMPorphan()
     // calculate accelerationss
     calculator->calculate(atoms);
 
-
+    // This could be vectorized to leverage Eigen parallelism instead of parallelizng by openMP
+    // using the library is the point of this excercise though.
     #pragma omp for schedule(static)
     for (int i = 0; i < atoms->nAtoms; i++)
     {
@@ -122,7 +123,8 @@ void Dynamics::stepOMP()
         // calculate accelerationss
         calculator->calculate(atoms);
 
-
+        // This could be vectorized to leverage Eigen parallelism instead of parallelizng by openMP
+        // using the library is the point of this excercise though.
         #pragma omp for schedule(static)
         for (int i = 0; i < atoms->nAtoms; i++)
         {
