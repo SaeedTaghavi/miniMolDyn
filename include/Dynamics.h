@@ -7,7 +7,7 @@
 
 #include <Eigen/Dense>
 #include <Atoms.h>
-#include <LJCalculator.h>
+#include <Calculator.h>
 
 //
 // Time evolution of the system
@@ -17,7 +17,7 @@ class Dynamics
 {
     static const int nDim = 3;
     Atoms * atoms;
-    LJCalculator * calculator;
+    Calculator * calculator;
 
     Eigen::Matrix< double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> accelerations;
     double timeStep;
@@ -26,7 +26,7 @@ class Dynamics
 
 public:
     //Standard constructor
-    Dynamics(Atoms *simAtoms, LJCalculator * simCalculator, double timeStepperino, std::string fileNAme);
+    Dynamics(Atoms *simAtoms, Calculator * simCalculator, double timeStepperino, std::string fileNAme);
 
     //Empty constructor just in case
     Dynamics();

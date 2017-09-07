@@ -6,11 +6,11 @@
 
 #include <Eigen/Dense>
 #include <Atoms.h>
-#include <LJCalculator.h>
+#include <Calculator.h>
 #include <Dynamics.h>
 
 //Standard constructor
-Dynamics::Dynamics(Atoms *simAtoms, LJCalculator * simCalculator, double timeStepperino, std::string fileNAme)
+Dynamics::Dynamics(Atoms *simAtoms, Calculator * simCalculator, double timeStepperino, std::string fileNAme)
 {
     this->atoms = simAtoms;
     this->calculator = simCalculator;
@@ -83,7 +83,7 @@ void Dynamics::stepOMPorphan()
     calculator->calculate(atoms);
 
     // This could be vectorized to leverage Eigen parallelism instead of parallelizng by openMP
-    // using the library is the point of this excercise though.
+    // using openMP library is the point of this excercise though.
     #pragma omp for schedule(static)
     for (int i = 0; i < atoms->nAtoms; i++)
     {

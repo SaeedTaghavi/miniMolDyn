@@ -22,12 +22,6 @@ LJCalculator::LJCalculator(double sigma, double epsilon, double rCutoff)
     omp_init_lock(&forceZLock);
 }
 
-//Empty constructor just in case
-LJCalculator::LJCalculator(){}
-
-//Destructor, so far not neede
-// ~LJCalculator();
-
 //Calculate forces and energies on Atoms
 void LJCalculator::calculate(Atoms* atoms)
 {

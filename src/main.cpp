@@ -23,8 +23,8 @@ int main()
     Atoms simAtoms;
 
     simAtoms = initializeAtomsFromXYZ("inputTestfile.xyz");    
+    // std::cout << simAtoms.positions << std::endl << std::endl;
 
-    std::cout << simAtoms.positions << std::endl << std::endl;
     std::string fileName = "outputTestFile.xyz";
     std::remove(fileName.c_str());
     simAtoms.printAtomsXYZ(fileName);

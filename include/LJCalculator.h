@@ -7,13 +7,14 @@
 
 #include <Eigen/Dense>
 #include <Atoms.h>
+#include <Calculator.h>
 
 
 //
 // Calculates properties of the system
 //
 
-class LJCalculator
+class LJCalculator : public Calculator
 {
     static const int nDim = 3;
     double sigma, epsilon, rCut;
@@ -27,12 +28,6 @@ class LJCalculator
 public:
     //Standard constructor
     LJCalculator(double sigma, double epsilon, double rCutoff);
-
-    //Empty constructor just in case
-    LJCalculator();
-
-    //Destructor, so far not neede
-    // ~LJCalculator();
 
     //Calculate forces and energies on Atoms
     void calculate(Atoms* atoms);

@@ -27,7 +27,7 @@ Atoms initializeAtomsFromXYZ(std::string fileName)
         std::string line;
         while ( getline (myfile,line) )
             {
-                std::cout << line << '\n';
+                // std::cout << line << '\n';
                 if (lineNo == 0)
                 {
                     // If reading first line, check the number of atoms
